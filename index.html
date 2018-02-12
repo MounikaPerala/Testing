@@ -1,11 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
 
+<!DOCTYPE html>
+<html ng-app="myfirstangularapp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS - Sebastian Brukalo</title>
+    <link data-require="bootstrap@*" data-semver="3.3.2" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="3.3.2" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.0-rc.0/angular.js" data-semver="1.4.0-rc.0"></script>
+    <script data-require="jquery@2.1.3" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="app.js"></script>
+    <script src="MyFirstController.js"></script>
+    <script src="data.js"></script>
+    <script src="filters.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
+<div class='container'>
+    <div ng-controller="MyFirstController">
+
+        <p class="text-muted">
+            1. Lower case filter:</p>
+        <p class="text-info">First Name : {{data.firstName | lowercase}}</p>
+
+        <hr/>
+
+        <p class="text-muted">
+            2. Upper case filter</p>
+
+        <p class="text-info">First Name : {{data.firstName | uppercase }}</p>
+
+        <hr/>
+
+        <p class="text-muted">
+            3. Date filter: (mm)</p>
+        <p class="text-info">Start Month : {{data.startDate | date:'MM'}}
+        </p>
+
+        <hr/>
+
+        <p class="text-muted">
+            4. Custom filter to remove all spaces:
+        <p class="text-info">{{data.dashes | removeAllSpaces}}</p>
+        </p>
+
+        <hr/>
+
+    </div>
+</div>
 </body>
 </html>
